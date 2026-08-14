@@ -364,9 +364,36 @@ This project is open-source and available under the MIT License.
 =======
 # Coffee Shop Sales Analysis
 
-A data analysis project focused on understanding coffee shop performance across multiple NYC store locations. The project explores sales trends, customer behavior, product performance, and operational insights using Python, Pandas, Matplotlib, Seaborn, and SciPy.
+### Turning coffee shop sales data into smarter business decisions
 
-## Project Overview
+Coffee Shop Sales Analysis is a Python-powered retail analytics project that turns transaction data into actionable insights on sales trends, store performance, customer demand, and product profitability. Built with Pandas, Matplotlib, Seaborn, and SciPy, it helps teams understand when demand peaks, which products drive revenue, and which locations perform best.
+
+This project is designed for analysts, students, and business teams who want a practical example of how to clean, explore, and visualize real-world sales data for better decisions.
+
+## Overview
+
+```mermaid
+flowchart LR
+    A[Raw Coffee Sales Data] --> B[Load & Clean Data]
+    B --> C[Explore Trends]
+    C --> D[Analyze Revenue & Demand]
+    D --> E[Generate Charts]
+    E --> F[Business Insights]
+```
+
+```mermaid
+flowchart TB
+    S1[Transaction Data] --> S2[Python Analysis]
+    S2 --> S3[Store Performance]
+    S2 --> S4[Demand Forecasting]
+    S2 --> S5[Category Revenue]
+    S3 --> K1[Sales KPIs]
+    S4 --> K2[Peak Hours & Footfall]
+    S5 --> K3[Product Mix]
+    K1 --> O1[Operations Decisions]
+    K2 --> O2[Staffing & Inventory]
+    K3 --> O3[Promotions & Pricing]
+```
 
 This analysis is built around transaction-level sales data from a coffee shop business. It examines:
 
@@ -378,9 +405,9 @@ This analysis is built around transaction-level sales data from a coffee shop bu
 
 The project is designed to turn raw transaction data into business-friendly insights that can inform pricing, staffing, inventory, and marketing decisions.
 
-## Dataset
+## What the project analyzes
 
-The project uses transactional coffee shop sales data with fields such as:
+The project works with transaction-level coffee shop sales data containing fields such as:
 
 - transaction_id
 - transaction_date
@@ -395,16 +422,16 @@ The project uses transactional coffee shop sales data with fields such as:
 - product_detail
 - size
 - total_bill
-- month/day/hour-derived features
+- date, month, and hour-derived features
 
-The data is expected to be placed in the `data/` directory as either:
+The dataset is expected in the `data/` directory as either:
 
 - `data/coffee_shop_sales.xlsx`
 - `data/coffee_shop_sales.csv`
 
-If your file uses a different name, update the path in the analysis script accordingly.
+If your file uses a different name, update the path in the script accordingly.
 
-## Business Questions Explored
+## Business questions this project answers
 
 - Which products generate the most revenue?
 - Which days and hours have the highest sales volume?
@@ -412,7 +439,7 @@ If your file uses a different name, update the path in the analysis script accor
 - How do customer purchasing patterns vary by time and category?
 - Are there statistically significant differences in spending patterns across periods?
 
-## Tools and Libraries
+## Tech stack
 
 - Python
 - Pandas
@@ -422,7 +449,7 @@ If your file uses a different name, update the path in the analysis script accor
 - SciPy
 - Jupyter Notebook
 
-## Repository Structure
+## Repository structure
 
 ```text
 coffee-sales/
@@ -435,7 +462,7 @@ coffee-sales/
 └── .ipynb_checkpoints/
 ```
 
-## Setup and Installation
+## Setup
 
 1. Clone the repository:
 
@@ -444,7 +471,7 @@ git clone https://github.com/HR07xx/Coffee-Shop-Sales-Analysis.git
 cd Coffee-Shop-Sales-Analysis
 ```
 
-2. Create and activate a virtual environment (recommended):
+2. Create and activate a virtual environment:
 
 ```bash
 python -m venv .venv
@@ -462,7 +489,7 @@ On macOS/Linux:
 source .venv/bin/activate
 ```
 
-3. Install dependencies:
+3. Install the dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -470,15 +497,15 @@ pip install -r requirements.txt
 
 4. Add your dataset to the `data/` folder.
 
-5. Run the analysis script:
+5. Run the analysis:
 
 ```bash
 python coffee.py
 ```
 
-If the notebook version is preferred, open the Jupyter notebook and execute the cells in order.
+If you prefer a notebook workflow, open the project notebook and run the cells in order.
 
-## Important Note on Data Loading
+## Data loading note
 
 The original script was using a hardcoded absolute Windows path. That is not portable across machines or GitHub environments. To make the project reusable, the dataset should be stored in a project-relative path such as:
 
@@ -490,21 +517,58 @@ data_path = Path("data") / "coffee_shop_sales.xlsx"
 
 This allows the project to run consistently on other computers and in shared environments.
 
-## Expected Insights
+## Typical insights
 
 The analysis typically reveals:
 
 - revenue concentration by product category
 - strongest-performing store locations
 - peak sales windows by weekday and hour
-- high-contribution products and bundles
-- opportunities for promotions based on demand trends
+- top-performing products and bundles
+- promotion opportunities based on customer demand trends
+
+## Project timeline
+
+```mermaid
+gantt
+    title Coffee Shop Sales Analysis Timeline
+    dateFormat  YYYY-MM-DD
+    section Planning
+    Define business goals           :done, des1, 2026-08-01, 2d
+    Identify KPIs and data needs    :done, des2, 2026-08-03, 2d
+    section Analysis
+    Data loading and cleaning       :active, ana1, 2026-08-05, 3d
+    Revenue and demand study        :ana2, after ana1, 3d
+    Product and store analysis      :ana3, after ana2, 3d
+    section Reporting
+    Chart generation and summaries  :rep1, after ana3, 2d
+    README and presentation polish :rep2, after rep1, 2d
+```
+
+## Business flow: store operations and KPIs
+
+```mermaid
+flowchart LR
+    A[Customer Order] --> B[Transaction Capture]
+    B --> C[Store Sales Data]
+    C --> D[Sales KPIs]
+    C --> E[Inventory & Product Mix]
+    C --> F[Hourly Demand]
+    D --> G[Revenue per Store]
+    E --> H[Reorder & Inventory Planning]
+    F --> I[Staffing & Scheduling]
+    G --> J[Store Performance Review]
+    H --> K[Operational Decisions]
+    I --> K
+    J --> K
+    K --> L[Pricing, Promotions, and Growth Strategy]
+```
 
 ## License
 
-This project is open for educational and analytical use. If you plan to publish or reuse it, add an appropriate license file as needed.
+This project is open for educational and analytical use. If you plan to publish or reuse it, add a suitable license file.
 
-## Future Improvements
+## Future improvements
 
 - add cleaned CSV exports for reusable analysis
 - create reusable plotting functions
